@@ -1,105 +1,99 @@
 {
-  "$schema": "https://tumbuh.mintlify.app/docs.json",
-  "theme": "mint",
-  "name": "Tumbuh Documentation",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
-  "favicon": "favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "index"
-            ]
-          },
-          {
-            "group": "User Guides",
-            "pages": [
-              "user-guides/quickstart",
-              "user-guides/economic-mechanism"
-            ]
-          },
-          {
-            "group": "Vault Systems",
-            "pages": [
-              "vault/vault-architecture",
-              "vault/emergency-protocol",
-              "vault/risk-management-strategies"
-            ]
-          },
-          {
-            "group": "Legal & Compliance",
-            "pages": [
-              "legal-and-compliance/legal",
-              "legal-and-compliance/privacy-policy",
-              "legal-and-compliance/risk-disclosure"
-            ]
-          },
-          {
-            "group": "",
-            "pages": [
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Events",
-        "groups": [
-          {
-            "group": "Events",
-            "pages": [
-              "events/info",
-              "events/tumbuh-waitlist"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "primary": {
-      "type": "button",
-      "label": "Join Waitlist",
-      "href": "https://waitlist.tumbuh.fi/"
-      }
+    "$schema": "https://tumbuh.mintlify.app/docs.json",
+    "theme": "mint",
+    "name": "Tumbuh Documentation",
+    "colors": {
+        "primary": "#16A34A",
+        "light": "#07C983",
+        "dark": "#15803D"
     },
-  "contextual": {
-    "options": [
-      {
-        "title": "Share on X",
-        "description": "Share this page on X",
-        "icon": "x",
-        "href": {
-          "base": "https://x.com/intent/tweet",
-          "query": [
+    "favicon": "favicon.svg",
+    "navigation": {
+        "tabs": [
             {
-            "key": "text",
-            "value": "Check out this documentation: https://tumbuh.mintlify.app"
+                "tab": "Guides",
+                "groups": [
+                    {
+                        "group": "Get Started",
+                        "pages": [
+                            "index"
+                        ]
+                    },
+                    {
+                        "group": "User Guides",
+                        "pages": [
+                            "user-guides/quickstart",
+                            "user-guides/economic-mechanism"
+                        ]
+                    },
+                    {
+                        "group": "Vault Systems",
+                        "pages": [
+                            "vault/vault-architecture",
+                            "vault/emergency-protocol",
+                            "vault/risk-management-strategies"
+                        ]
+                    },
+                    {
+                        "group": "Legal & Compliance",
+                        "pages": [
+                            "legal-and-compliance/legal",
+                            "legal-and-compliance/privacy-policy",
+                            "legal-and-compliance/risk-disclosure"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Events",
+                "groups": [
+                    {
+                        "group": "Events",
+                        "pages": [
+                            "events/info",
+                            "events/tumbuh-waitlist"
+                        ]
+                    }
+                ]
             }
-          ]
+        ],
+        "global": {}
+    },
+    "logo": {
+        "light": "/logo/light.svg",
+        "dark": "/logo/dark.svg"
+    },
+    "navbar": {
+        "primary": {
+            "type": "button",
+            "label": "Join Waitlist",
+            "href": "https://waitlist.tumbuh.fi/"
         }
-      }
-    ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/tumbuhfi"
+    },
+    "contextual": {
+        "options": [
+            {
+                "title": "Share on X",
+                "description": "Share this page on X",
+                "icon": "x",
+                "href": {
+                    "base": "https://x.com/intent/tweet",
+                    "query": [
+                        {
+                            "key": "text",
+                            "value": "Check out this documentation: https://tumbuh.mintlify.app"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "footer": {
+        "socials": {
+            "x": "https://x.com/tumbuhfi"
+        }
+    },
+    "modeToggle": {
+        "default": "dark"
     }
-  },
-  "modeToggle": {
-    "default": "dark"
-  }
 }
