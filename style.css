@@ -1,0 +1,24 @@
+/* Hide the language text
+#localization-select-trigger p {
+  display: none;
+}
+
+/* Hide the chevron icon */
+#localization-select-trigger svg {
+  display: none;
+}
+
+/* Adjust button padding since text is hidden */
+#localization-select-trigger {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+/* Move language selector to the right side of navbar */
+#localization-select-trigger {
+  position: fixed;
+  right: 240px; /* Adjust based on your Join Waitlist button width */
+  top: 18px;
+  z-index: 50;
+} 
+*/

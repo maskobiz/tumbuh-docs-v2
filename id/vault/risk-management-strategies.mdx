@@ -1,0 +1,27 @@
+---
+title: "Strategi Manajemen Risiko"
+---
+
+#### Risiko pada Vault Provider
+
+- **Ketergantungan terhadap DEX:** Dimitigasi melalui proses uji kelayakan (due diligence), pemantauan langsung, serta rencana penarikan darurat.
+- **Kegagalan Oracle:** Menggunakan konfigurasi multi-oracle dengan protokol cadangan (fallback).
+- **Kesalahan Logika Biaya:** Pencatatan High Water Mark (HWM) secara individual, jejak audit (audit trail), serta mekanisme perlindungan pengembalian dana.
+
+#### Risiko pada Penyedia Data
+
+- **Kualitas dan Ketersediaan Data:** Validasi dari berbagai sumber, cadangan real-time, serta perjanjian tingkat layanan (SLA) dengan penyedia data.
+- **Keamanan:** Pengendalian akses, deteksi anomali, dan protokol respons insiden.
+
+#### Risiko pada Strategy Curator
+
+- **Pemilihan Pool:** Penerapan kriteria ketat terkait likuiditas, volume, dan tingkat volatilitas.
+- **Bias Backtesting:** Pengujian out-of-sample, simulasi Monte Carlo, serta paper trading secara live.
+- **Keterbatasan Kapasitas:** Ambang batas yang dimodelkan, alokasi modal bertahap, dan diversifikasi ke berbagai pool.
+
+#### Pengawasan Guardian
+
+- **Penyimpangan Kinerja:** Memantau deviasi terhadap model dan memicu proses kalibrasi ulang.
+- **Celah Pemantauan:** Sistem redundan dengan pemeriksaan kesehatan (health checks).
+- **Respons Lambat:** Jalur eskalasi insiden yang jelas serta simulasi respons berbasis peran.
+

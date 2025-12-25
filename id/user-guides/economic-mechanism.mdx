@@ -1,0 +1,111 @@
+---
+title: "Mekanisme Ekonomi"
+description: "Halaman ini menjelaskan bagaimana Tumbuh Smart Rebalance menghasilkan imbal hasil, bagaimana biaya diterapkan, serta bagaimana reward pengguna dicatat. Seluruh mekanisme dirancang agar transparan, terotomatisasi, dan dapat diverifikasi secara on-chain."
+---
+
+### Cara Tumbuh Smart Rebalance Menghasilkan Imbal Hasil
+
+Tumbuh Smart Rebalance mengoptimalkan penyediaan likuiditas melalui dua model strategi yang saling melengkapi:
+
+<AccordionGroup>
+  <Accordion title="1. Passive Market Making">
+    Vault mengalokasikan dana ke AMM seperti **Morpho**, **Aerodrome**, dan pasar likuiditas terkonsentrasi lainnya. Strategi yang digunakan meliputi:
+
+    - Penempatan tick yang cerdas untuk memaksimalkan perolehan fee  
+    - Minimasi risiko impermanent loss (IL)  
+    - Optimalisasi berkelanjutan berdasarkan volatilitas pasar  
+
+    Karakteristik utama:
+
+    - Rebalancing secara real-time  
+    - Manajemen rentang likuiditas yang dinamis  
+    - Analitik prediktif untuk menyesuaikan strategi terhadap perubahan volatilitas  
+  </Accordion>
+
+  <Accordion title="2. Protocol-Managed Market Making">
+    Dalam strategi ini, vault beroperasi atas nama penerbit token, proyek stablecoin, atau bursa untuk menjaga efisiensi harga. Pendekatan ini mencakup:
+
+    - Pasangan anchor stablecoin (misalnya BTC/USDT, USDC/DAI)  
+    - Pasangan aset volatil dengan perlindungan IL  
+    - Logika cooldown kustom untuk exit strategis dan pengurangan slippage  
+
+    Strategi ini bertujuan menjaga kedalaman pasar, mengurangi volatilitas, dan menghasilkan fee secara konsisten.
+  </Accordion>
+</AccordionGroup>
+
+### Komposisi Imbal Hasil
+
+APY vault dihasilkan dari tiga komponen utama:
+
+- **Pendapatan Fee** dari posisi LP di pasar likuiditas terkonsentrasi  
+- **Spread Capture** dari aktivitas market making saat harga bergerak di dalam rentang likuiditas  
+- **Utilization Premium**, yaitu tambahan imbal hasil berdasarkan tingkat permintaan terhadap vault tertentu  
+
+Seluruh hasil akan kembali ke dalam vault, sehingga meningkatkan **Nilai Aset Bersih (Net Asset Value / NAV)**. NAV dievaluasi dan diperbarui secara berkala.
+
+### Pelacakan Data & Pencatatan Reward
+
+Untuk memastikan perhitungan imbal hasil yang transparan dan akurat, Tumbuh mencatat:
+
+- Seluruh peristiwa pengambilan fee dari DEX  
+- Aktivitas swap yang terjadi di dalam rentang likuiditas vault  
+- Konversi fee yang terkumpul ke IDRX menggunakan harga berbasis timestamp  
+
+Pendekatan ini memastikan reward dinilai secara konsisten dan terstandarisasi dalam laporan pengguna.
+
+### **Struktur Data Snapshot**
+
+Data dicatat secara berkala setiap **10 menit** dan disimpan pada tingkat pengguna.  
+Setiap snapshot mencakup informasi berikut:
+
+| **Field**                           | **Deskripsi**                                                                                                          |
+| :---------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **Jumlah Fee Token A Pengguna**     | Total fee perdagangan yang diperoleh pengguna dalam **Token A** pada pasangan likuiditas.                             |
+| **Jumlah Fee Token B Pengguna**     | Total fee perdagangan yang diperoleh pengguna dalam **Token B**, sebagai aset kedua dalam pasangan likuiditas.        |
+| **Jumlah Reward Token C Pengguna**  | Reward insentif tambahan dalam **Token C** (misalnya emisi dari protokol mitra).                                       |
+| **Jumlah Reward Token D Pengguna**  | Reward insentif sekunder dalam **Token D**, jika berlaku.                                                               |
+| **Reward Baru Pengguna (USD)**      | Reward yang diperoleh sejak snapshot sebelumnya, dikonversi ke **USD** berdasarkan harga berbasis timestamp.          |
+| **Reward Kumulatif Pengguna (USD)** | **Total pendapatan sepanjang waktu** pengguna hingga snapshot ini, dinyatakan dalam **USD**.                          |
+
+Sistem snapshot terstruktur ini memastikan:
+
+- Perhitungan reward yang **transparan dan dapat diverifikasi**  
+- Akuntansi yang **akurat** untuk berbagai jenis token  
+- **Insight real-time** terhadap pendapatan dalam denominasi token maupun ekuivalen USD/IDRX  
+- Dasar yang konsisten untuk pelaporan, peringkat leaderboard, dan pembaruan dashboard pengguna  
+
+### Biaya dan Risiko
+
+| Biaya Kinerja                              | Biaya Penarikan                     | Risiko                                                                 |
+| ------------------------------------------ | ----------------------------------- | ---------------------------------------------------------------------- |
+| Dikenakan hanya saat keuntungan terealisasi | Tidak ada, kecuali ditentukan protokol | Risiko smart contract, kegagalan protokol mitra, risiko depeg stablecoin |
+
+<Tabs>
+  <Tab title="Struktur Biaya">
+    **Tumbuh** menggunakan model biaya berbasis kinerja yang transparan dan selaras dengan kepentingan pengguna, protokol, serta penyedia strategi. Seluruh biaya diterapkan secara on-chain dan dapat dipantau langsung melalui dashboard vault.
+  </Tab>
+
+  <Tab title="Biaya Kinerja (Performance Fee)">
+    - **Tarif:** 20% dari keuntungan yang terealisasi di atas High Water Mark (HWM), ditetapkan secara individual untuk setiap vault.
+    - **Pemicu:** Dikenakan secara otomatis **setelah keuntungan terealisasi**, ketika vault melakukan rebalancing untuk mengamankan hasil dan mengoptimalkan strategi berikutnya.
+    - **Perlindungan High Water Mark:**
+      - Mencegah pengenaan biaya atas keuntungan yang belum terealisasi atau keuntungan historis.
+      - Setiap deposit baru menetapkan baseline NAV baru, sehingga pengguna hanya membayar biaya atas kinerja riil di atas nilai masuk mereka.
+    - **Tujuan Dana:**
+      - 100% biaya kinerja dialokasikan ke treasury protokol Tumbuh.
+      - Tidak dibagikan kepada LP atau operator, kecuali dinyatakan secara eksplisit pada ketentuan vault di masa mendatang.
+  </Tab>
+
+  <Tab title="Biaya Pengelolaan (Management Fee)">
+    - **Tarif Saat Ini:** 0%
+    - **Status:** Dinonaktifkan secara default untuk memaksimalkan efisiensi modal bagi deposan.
+  </Tab>
+
+  <Tab title="Perlindungan Pengguna & Fleksibilitas Exit">
+    - **Tanpa Lock-up:** Dana dapat ditarik kapan saja (kecuali terjadi penghentian darurat).
+    - **Tanpa Biaya Penarikan:** Pengguna tidak dikenakan biaya saat keluar dari vault.
+    - **Perlindungan Pokok melalui HWM:**
+      - Depositor tidak mensubsidi keuntungan masa lalu.
+      - Biaya hanya dikenakan atas keuntungan baru yang dihasilkan di atas NAV masuk masing-masing pengguna.
+  </Tab>
+</Tabs>

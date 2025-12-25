@@ -7,64 +7,108 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "favicon.svg",
+  "seo": {
+    "metatags": {
+      "canonical": "https://docs.tumbuh.fi"
+    }
+  },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "default": true,
+        "tabs": [
           {
-            "group": "Get Started",
-            "pages": [
-              "index"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": ["en/index"]
+              },
+              {
+                "group": "User Guides",
+                "pages": [
+                  "en/user-guides/quickstart",
+                  "en/user-guides/economic-mechanism"
+                ]
+              },
+              {
+                "group": "Vault Systems",
+                "pages": [
+                  "en/vault/vault-architecture",
+                  "en/vault/emergency-protocol",
+                  "en/vault/risk-management-strategies"
+                ]
+              },
+              {
+                "group": "Legal & Compliance",
+                "pages": [
+                  "en/legal-and-compliance/legal",
+                  "en/legal-and-compliance/privacy-policy",
+                  "en/legal-and-compliance/risk-disclosure"
+                ]
+              }
             ]
           },
           {
-            "group": "User Guides",
-            "pages": [
-              "user-guides/quickstart",
-              "user-guides/economic-mechanism"
-            ]
-          },
-          {
-            "group": "Vault Systems",
-            "pages": [
-              "vault/vault-architecture",
-              "vault/emergency-protocol",
-              "vault/risk-management-strategies"
-            ]
-          },
-          {
-            "group": "Legal & Compliance",
-            "pages": [
-              "legal-and-compliance/legal",
-              "legal-and-compliance/privacy-policy",
-              "legal-and-compliance/risk-disclosure"
-            ]
-          },
-          {
-            "group": "Snippets",
-            "pages": [
-              "snippets/snippet-intro"
+            "tab": "Events",
+            "groups": [
+              {
+                "group": "Events",
+                "pages": ["en/events/info", "en/events/tumbuh-waitlist"]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Events",
-        "groups": [
+        "language": "id",
+        "tabs": [
           {
-            "group": "Events",
-            "pages": [
-              "events/info",
-              "events/tumbuh-waitlist"
+            "tab": "Panduan",
+            "groups": [
+              {
+                "group": "Mulai",
+                "pages": ["id/index"]
+              },
+              {
+                "group": "Panduan Pengguna",
+                "pages": [
+                  "id/user-guides/quickstart",
+                  "id/user-guides/economic-mechanism"
+                ]
+              },
+              {
+                "group": "Sistem Vault",
+                "pages": [
+                  "id/vault/vault-architecture",
+                  "id/vault/emergency-protocol",
+                  "id/vault/risk-management-strategies"
+                ]
+              },
+              {
+                "group": "Hukum & Kepatuhan",
+                "pages": [
+                  "id/legal-and-compliance/legal",
+                  "id/legal-and-compliance/privacy-policy",
+                  "id/legal-and-compliance/risk-disclosure"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Acara",
+            "groups": [
+              {
+                "group": "Acara",
+                "pages": ["id/events/info", "id/events/tumbuh-waitlist"]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -75,11 +119,10 @@
       "type": "button",
       "label": "Join Waitlist",
       "href": "https://waitlist.tumbuh.fi/"
-      }
-    },
+    }
+  },
   "contextual": {
     "options": [
-      "view",
       {
         "title": "Share on X",
         "description": "Share this page on X",
@@ -88,8 +131,8 @@
           "base": "https://x.com/intent/tweet",
           "query": [
             {
-            "key": "text",
-            "value": "Check out this documentation: https://tumbuh.mintlify.app"
+              "key": "text",
+              "value": "Check out this documentation: https://tumbuh.mintlify.app"
             }
           ]
         }

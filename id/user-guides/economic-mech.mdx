@@ -1,0 +1,107 @@
+---
+title: "Economic Mechanism"
+description: "This page explains how Tumbuh Smart Rebalance generates yield, how fees are applied, and how user rewards are tracked.   All mechanisms are designed to be transparent, automated, and verifiable on-chain."
+---
+
+### How Tumbuh Smart Rebalance Generates Yield
+
+Tumbuh Smart Rebalance optimizes liquidity provisioning through two complementary models:
+
+<AccordionGroup>
+  <Accordion title="1. Passive Market Making">
+    Vaults deploy capital into AMMs such as **Morpho**, **Aerodrome**, and other concentrated liquidity markets. Strategies include:
+
+    - Intelligent tick placement to maximize fee capture
+    - Minimization of impermanent loss (IL)
+    - Continuous optimization based on market volatility
+
+    Key Characteristics:
+
+    - Real-time rebalancing
+    - Dynamic range management
+    - Predictive analytics to adapt to changing volatility
+  </Accordion>
+  <Accordion title="2. Protocol-Managed Market Making">
+    In protocol-managed strategies, vaults act on behalf of token issuers, stablecoin projects, or exchanges to maintain price efficiency. This includes:
+
+    - Stablecoin anchor pairs (e.g., BTC/USDT, USDC/DAI)
+    - IL-protected volatile pairs
+    - Custom cooldown logic for strategic exits and slippage reduction
+
+    These strategies aim to maintain market depth, reduce volatility, and drive consistent fee generation.
+  </Accordion>
+</AccordionGroup>
+
+### Yield Composition
+
+Vault APY is generated from three primary components:
+
+- Fee Earnings From LP positions in concentrated liquidity markets.
+- Spread Capture Earned through active market-making when prices move within deployed ranges.
+- Utilization Premiums Additional yield derived from demand on specific vaults.
+
+All returns flow back to the vault, increasing the Net Asset Value (NAV), which is benchmarked and updated regularly.
+
+### Data Tracking & Reward Accounting
+
+To ensure transparent and accurate yield calculations, Tumbuh tracks:
+
+- All fee collection events within the DEX
+- Swap activity occurring inside the vault's liquidity ranges
+- Conversion of collected fees into IDRX using timestamp-aligned price feeds
+
+This ensures rewards are consistently valued and normalized for user reporting.
+
+### **Snapshot Data Structure**
+
+Data is recorded at fixed intervals (every 10 minutes) and stored at the user level.\
+Each snapshot contains the following fields:
+
+| **Field**                           | **Description**                                                                                                      |
+| :---------------------------------- | :------------------------------------------------------------------------------------------------------------------- |
+| **User's Fees Token A Amount**      | The total trading fees the user has earned in **Token A** within the liquidity pair.                                 |
+| **User's Fees Token B Amount**      | The total trading fees the user has earned in **Token B**, the second asset in the liquidity pair.                   |
+| **User's Rewards Token C Amount**   | Additional incentive rewards distributed in **Token C** (e.g., emissions from partner protocols).                    |
+| **User's Rewards Token D Amount**   | Secondary incentive rewards distributed in **Token D**, if applicable.                                               |
+| **User's New Rewards (USD)**        | The newly accumulated rewards since the previous snapshot, converted to **USD** using timestamp-aligned price feeds. |
+| **User's Cumulative Rewards (USD)** | The user's **total lifetime earnings** up to this snapshot, also expressed in **USD**.                               |
+
+This structured snapshot system ensures:
+
+- **Transparent and verifiable** reward calculations
+- **Accurate accounting** across multiple token types
+- **Real-time insight** into both token-denominated and USD/IDRX-equivalent earnings
+- **A consistent basis** for reporting, leaderboard ranking, and user dashboard updates
+
+### Fees and Risks
+
+| Performance Fee                         | Withdrawal Fee                      | Risks                                                                     |
+| --------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------- |
+| Applied only when profits are realized. | None, unless specified by protocol. | Smart contract exploits, partner protocol failure, stablecoin depeg risk. |
+
+<Tabs>
+  <Tab title="Fee Structure">
+    **Tumbuh** use a transparent, performance-based fee model that aligns the interests of users, the protocol, and strategy providers. All fees are enforced on-chain and are clearly visible in the vault's dashboard.
+  </Tab>
+  <Tab title="Performance Fee">
+    - **Rate:** 20% of realized gains above the High Water Mark (HWM), set individually per vault.
+    - **Trigger:** Automatically charged during scheduled rebalancing events (every 1–2 days).
+    - **High Water Mark Protection:**
+      - Prevents fees on unrealized or historical profits.
+      - New deposits raise the baseline to ensure users only pay on actual performance above their entry value.
+    - **Destination:**
+      - 100% of collected performance fees go to the Tumbuh protocol treasury.
+      - Not shared with LPs or operators unless explicitly stated in future vault terms.
+  </Tab>
+  <Tab title="Management Fee">
+    - **Current Rate:** 0%
+    - **Status**: Disabled by default to maximize capital efficiency for depositors.
+  </Tab>
+  <Tab title="User Protections & Exit Flexibility">
+    - **No Lockups**: Funds can be withdrawn at any time (unless an emergency shutdown is triggered).
+    - **No Withdrawal Fees**: Users are never charged fees for exiting the vault.
+    - **Principal Protection via HWM:**
+      - Depositors never subsidize past gains.
+      - Fees only apply to new profits earned beyond their personal entry NAV.
+  </Tab>
+</Tabs>

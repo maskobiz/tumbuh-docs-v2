@@ -1,0 +1,24 @@
+---
+title: "Protokol Darurat"
+description: "Vault Tumbuh menggabungkan otomatisasi real-time dengan pengawasan manusia (human-in-the-loop) untuk memastikan respons yang cepat dan terkontrol."
+---
+
+#### Pemantauan
+
+Otomatis (setiap 30–60 detik):
+
+- Pemantauan kerugian PnL, slippage, lonjakan gas, dan penurunan TVL → memicu tindakan otomatis atau eskalasi ke peninjauan manual (harian).
+- Guardian melakukan pemeriksaan terhadap kinerja vault, risiko impermanent loss (IL), volatilitas, dan status data.
+
+### Alur Respons
+
+- **Pemicu Sistem:** Sistem secara otomatis mengurangi posisi atau memulai penghentian sementara (shutdown).
+- **Peninjauan Manual:** Vault Provider dan Curator meninjau kondisi dan menentukan penyesuaian yang diperlukan.
+- **Eksekusi:** Tindakan dijalankan atau dibatalkan dalam waktu maksimal 60 menit.
+- **Komunikasi ke Pengguna:** Pembaruan diberikan setiap 10–60 menit, dengan laporan lengkap disampaikan dalam 24 jam.
+
+### Pemulihan
+
+Setelah kondisi darurat, dilakukan audit pasca-insiden, pembaruan parameter, serta peningkatan pemantauan selama 7 hari.
+
+Dengan pembagian peran yang jelas, pengelolaan risiko berlapis, dan mekanisme pengamanan di setiap tingkat, Tumbuh memastikan keandalan vault, transparansi operasional, serta perlindungan pengguna dalam lingkungan DeFi yang aktif.
