@@ -1,4 +1,4 @@
-/* Hide the language text
+/* Hide the language text  */
 #localization-select-trigger p {
   display: none;
 }
@@ -21,4 +21,3 @@
   top: 18px;
   z-index: 50;
 } 
-*/
